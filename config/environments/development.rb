@@ -33,12 +33,30 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
+  # # CONFIGURE MAILER FOR DEVELOPMENT ENVIRONMENT
+  #   host = 'sample_app.test' # Don't use this ('example.com') literally; use your local dev host instead
+  #   # Use this on the cloud IDE.
+  #   # config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+  #   # Use this if developing on localhost.
+  #   config.action_mailer.default_url_options = { host: host, protocol: 'http' }
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
-  host = 'sample_app.test' # Don't use this literally; use your local dev host instead
-  # Use this on the cloud IDE.
+  # CONFIGURE MAILER TO SENT EMAIL WITH GMAIL SMTP (Reference: 'https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration-for-gmail')
+  config.action_mailer.raise_delivery_errors = true
+  host = 'sample_app.test'
   config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+  config.action_mailer.delivery_method = :smtp
+  ActionMailer::Base.smtp_settings = {
+      :address              => 'smtp.gmail.com',
+      :port                 => 587,
+      :authentication       => :plain,
+      :user_name            => 'dona.developermode@gmail.com',
+      :password             => 'DonaDeveloperMode123',
+      :domain               => 'sample_app.test',
+      :enable_starttls_auto => true
+  }
+
   # Use this if developing on localhost.
   # config.action_mailer.default_url_options = { host: host, protocol: 'http' }
 
