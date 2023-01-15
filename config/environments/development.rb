@@ -36,6 +36,28 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
+  # # CONFIGURE MAILER FOR DEVELOPMENT ENVIRONMENT
+  #   host = 'sample_app.test' # Don't use this ('example.com') literally; use your local dev host instead
+  #   # Use this on the cloud IDE.
+  #   # config.action_mailer.default_url_options = { host: host, protocol: 'https' }
+  #   # Use this if developing on localhost.
+  #   config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+
+  # CONFIGURE MAILER TO SENT EMAIL WITH GMAIL SMTP (Reference: 'https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration-for-gmail')
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  host = 'sample_app.test'
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
+  ActionMailer::Base.smtp_settings = {
+      :address              => 'smtp.gmail.com',
+      :port                 => 587,
+      :authentication       => :plain,
+      :user_name            => 'dwiputra.sum@gmail.com',
+      :password             => 'Dwiputrasum28',
+      :domain               => 'sample_app.test',
+      :enable_starttls_auto => true
+  }
+  
   config.action_mailer.perform_caching = false
 
   # Print deprecation notices to the Rails logger.
