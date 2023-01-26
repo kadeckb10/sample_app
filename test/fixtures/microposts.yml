@@ -26,8 +26,6 @@ micropost_<%= n %>:
   created_at: <%= 42.days.ago %>
   user: michael
 <% end %>
-<<<<<<< HEAD
-=======
 
 ants:
   content: "Oh, is that what you want? Because that's how you get ants!"
@@ -48,4 +46,3 @@ van:
   content: "Dude, this van's, like, rolling probable cause."
   created_at: <%= 4.hours.ago %>
   user: lana
->>>>>>> d0df217b7f4886e27d38b88fb8b7c36a498de746
