@@ -23,4 +23,16 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
       assert_match micropost.content, response.body
     end
   end
+
+  test "stats on the Home page & Profile page" do
+    log_in_as(@user)
+    get root_path
+    assert_select "div.stats"
+    assert_select "a[href=?]", following_user_path(@user)
+    assert_select "a[href=?]", followers_user_path(@user)
+    get user_path(@user)
+    assert_select "div.stats"
+    assert_select "a[href=?]", following_user_path(@user)
+    assert_select "a[href=?]", followers_user_path(@user)
+  end
 end
