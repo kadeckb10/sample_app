@@ -69,16 +69,16 @@ Rails.application.configure do
   # CONFIGURE MAILER TO SENT EMAIL WITH GMAIL SMTP (Reference: 'https://guides.rubyonrails.org/action_mailer_basics.html#action-mailer-configuration-for-gmail')
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  host = 'donarails.herokuapp.com'
-  config.action_mailer.default_url_options = { host: host, protocol: 'https'  }
+  host = 'sample_app.test'
+  config.action_mailer.default_url_options = { host: host, protocol: 'http' }
   ActionMailer::Base.smtp_settings = {
-    :address              => 'smtp.gmail.com',
-    :port                 => 587,
-    :authentication       => :plain,
-    :user_name            => 'dwiputra.sum@gmail.com',
-    :password             => 'Dwiputrasum28',
-    :domain               => 'sample_app.test',
-    :enable_starttls_auto => true
+      :address              => 'smtp.gmail.com',
+      :port                 => 587,
+      :authentication       => :plain,
+      :user_name            => 'kadekdwiputra10xak2@gmail.com',
+      :password             => 'dwonsyzvrmwipibw',
+      :domain               => 'sample_app.test',
+      :enable_starttls_auto => true
   }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
